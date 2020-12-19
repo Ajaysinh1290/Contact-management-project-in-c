@@ -10,6 +10,7 @@
  int a,button,x=0,y=0;
  int b;
  int quit=1;
+ int sound1=0;
 
 int i,j;
 FILE *fp,*fp1,*fp2;
@@ -26,6 +27,14 @@ void searchname();
 void openscrollbox(int x1,int y1,int x2,int y2,int scrollboxcolor);
 void box(int x1,int y1,int space,int height,int boxcolor,int boxbkcolor);
 int scrollboxcolor=15;
+void keysound()
+{
+
+     sound(sound1);
+     delay(50);
+     nosound();
+
+}
 void mainpage()
 {
 
@@ -311,6 +320,29 @@ void menu(int k,int f)
 
 
 
+
+    if(k==21)
+    {
+       bkcolor=2;
+    }
+    else
+    {
+     bkcolor=7;
+    }
+
+
+    gotoxy(2,21);
+
+    textbackground(bkcolor);
+    textcolor(1);
+    cprintf("Sound");
+
+
+    gotoxy(7,21);
+
+    textbackground(bkcolor);
+    textcolor(texcolor);
+    cprintf(" [ Tab Key ]");
     if(k==23)
     {
        bkcolor=2;
@@ -331,7 +363,7 @@ void menu(int k,int f)
 
     textbackground(bkcolor);
     textcolor(texcolor);
-    cprintf("[ ESC KEY ]");
+    cprintf(" [ Esc Key ]");
 	      /*
     if(f==0)
     {
@@ -716,6 +748,7 @@ void allcontacts()
 	    textbackground(7);
 	    cprintf("No Contacts available");
 	    getch();
+	    keysound();
        }
 
 
@@ -830,6 +863,7 @@ void allcontacts()
 
 	   }
 	   a=getch();
+	   keysound();
 	   if(a==13||a==8)
 	   {
 
@@ -838,6 +872,7 @@ void allcontacts()
 	    {
 
 	   b=getch();
+	   keysound();
 
 	   if(b==80 || b==' ')
 	   {
@@ -963,6 +998,7 @@ int chk1,chk2;
       cprintf("All");
 
       a=getch();
+      keysound();
 
       if(a==13)
      {
@@ -984,6 +1020,7 @@ int chk1,chk2;
      else
      {
      ch=getch();
+     keysound();
      if(ch==' '||ch==80)
      {
 	 k++;
@@ -1136,6 +1173,7 @@ int chk1,chk2;
      cprintf("o");
 
      ch=getch();
+     keysound();
 
      if(ch=='y'||ch=='Y'||ch==13)
      {
@@ -1358,6 +1396,7 @@ int chk1,chk2;
 	  _setcursortype(_NOCURSOR);
 	  cprintf("No Contacts Avilable");
 	  getch();
+	  keysound();
 
 
  }
@@ -1381,7 +1420,7 @@ void searchname()
      textcolor(0);
      _setcursortype(_NORMALCURSOR);
      textbackground(2);
-     cprintf("                %c   Search Context  %c                  ",17,16);
+     cprintf("                %c   Search Contect  %c                  ",17,16);
 
      gotoxy(23,8);
      textcolor(1);
@@ -1439,15 +1478,7 @@ void searchname()
 
  //	mainpage();
     //	menu(11,1);
-		openscrollbox(21,2,77,20,7);
-		gotoxy(22,3);
-		textcolor(7);
-		textbackground(6);
-		cprintf("    All The Contacts Which Contains                    ");
-		gotoxy(58,3);
-		textcolor(7);
-		textbackground(6);
-		cprintf("\" %s \"",name);
+		openscrollbox(21,4,77,20,7);
 
        scrollnumber=inc+1;
 
@@ -1498,6 +1529,7 @@ void searchname()
 
 	   }
 	   a=getch();
+	   keysound();
 	   if(a==13||a==8)
 	   {
 
@@ -1506,6 +1538,7 @@ void searchname()
 	    {
 
 	   b=getch();
+	   keysound();
 
 	   if(b==80 || b==' ')
 	   {
@@ -1575,6 +1608,7 @@ void searchname()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("Could Not Found !");
 	  getch();
+	  keysound();
 
      }
 }
@@ -1698,6 +1732,7 @@ void searchnumber()
 
 	   }
 	   a=getch();
+	   keysound();
 	   if(a==13||a==8)
 	   {
 
@@ -1706,6 +1741,7 @@ void searchnumber()
 	    {
 
 	   b=getch();
+	   keysound();
 
 	   if(b==80 || b==' ')
 	   {
@@ -1775,6 +1811,7 @@ void searchnumber()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("Could Not Found !");
 	  getch();
+	  keysound();
 
      }
 }
@@ -1836,6 +1873,7 @@ void search()
       cprintf(" Number");
 
      a=getch();
+     keysound();
 
       if(a==13)
      {
@@ -1857,6 +1895,7 @@ void search()
      else
      {
      ch=getch();
+     keysound();
      if(ch==' '||ch==80)
      {
 	 k++;
@@ -1916,6 +1955,7 @@ void search()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("No contacts available");
 	  getch();
+	  keysound();
 
      }
 }
@@ -1978,6 +2018,7 @@ void edit()
       cprintf("umber");
 
      a=getch();
+     keysound();
      if(a==13)
      {
 
@@ -2002,6 +2043,7 @@ void edit()
      else
      {
      ch=getch();
+     keysound();
      if(ch==' '||ch==80)
      {
 	 k++;
@@ -2169,6 +2211,7 @@ void edit()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("ERORR : Contact Not Found ! ");
 	  getch();
+	  keysound();
      }
      fclose(fp);
      fclose(fp1);
@@ -2319,6 +2362,7 @@ void edit()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("ERORR : Contact Not Found ! ");
 	  getch();
+	  keysound();
      }
      fclose(fp);
      fclose(fp1);
@@ -2345,6 +2389,7 @@ void edit()
 	  _setcursortype(_NOCURSOR);
 	  cprintf("No contacts available");
 	  getch();
+	  keysound();
        fclose(fp);
 
       }
@@ -2443,6 +2488,7 @@ void login()
 
 	    repeat:
 	      ch=getch();
+	      keysound();
 	      if(ch=='!')
 	      {
 	       gotoxy(41,14);
@@ -2525,6 +2571,7 @@ void login()
 		 textbackground(7);
 		 cprintf("Exit [ESC KEY]");
 		 k=getch();
+		 keysound();
 		 if(k==27)
 		 {
 		 exit(1);
@@ -2634,6 +2681,7 @@ void deleteprofile()
 	    textbackground(6);
 	    cprintf("                  Press any Key                 ");
 	    getch();
+	    keysound();
 
 }
 void editmyprofile()
@@ -2827,6 +2875,7 @@ char ch;
 	{
 	keyintro();
 	getch();
+	keysound();
 	}
 	fclose(fp2);
 
@@ -2836,18 +2885,28 @@ char ch;
       menu(scroll,enter);
 
       a=getch();
+
+
       if(a==80 || a==' ')
-      {
+      {  keysound();
 	 scroll+=2;
+
+	 if(scroll>=23)
+	 {
+	    scroll=23;
+	 }
+	 else
+	 {
 
 	 if(scroll>15)
 	 {
-	   scroll=23;
+	   scroll=21;
 	   if(scroll>23)
 	   {
 
 	    scroll=23;
 	   }
+	 }
 	 }
 	 enter=0;
 	 goto startprograme;
@@ -2855,8 +2914,8 @@ char ch;
       }
       else if(a==72||a==8)
       {
-
-      if(scroll==23)
+	  keysound();
+      if(scroll==21)
       {
        scroll=15;
       }
@@ -2876,13 +2935,27 @@ char ch;
 	exit(1);
 
       }
+      else if(a==9 || scroll==21 && a==13)
+      {
+	if(sound1==0)
+	{
+	  sound1=2500;
+	}
+	else
+	{
+	 sound1=0;
+	}
+	goto startprograme;
+
+      }
+
       else if(a==13 && scroll==3 ||a=='n'||a=='N')
       {
 //       <<  New contact  >>
 	 enter=1;
 	 scroll=3;
 
-	 system("cls");
+
 	 mainpage();
 	 menu(3,enter);
 	 newcontact();
@@ -2899,7 +2972,7 @@ char ch;
 	 enter=1;
 	 scroll=5;
 
-	 system("cls");
+
 	 mainpage();
 	 menu(5,enter);
 	 search();
@@ -2917,7 +2990,7 @@ char ch;
 	 enter=1;
 	 scroll=7;
 
-	 system("cls");
+
 	 mainpage();
 	 menu(7,enter);
 	 edit();
@@ -2934,7 +3007,6 @@ char ch;
 	 enter=1;
 	 scroll=9;
 
-	 system("cls");
 	 mainpage();
 	 menu(9,enter);
 	 deleteword();
@@ -2949,8 +3021,6 @@ char ch;
 //          allcontacts >>>>>>>>>>>>>>>>>>>>>>>>>>>
 	 enter=1;
 	 scroll=11;
-
-	 system("cls");
 	 mainpage();
 	 menu(11,enter);
 	 allcontacts();
@@ -2965,11 +3035,12 @@ char ch;
 	 enter=1;
 	      scroll=13;
 
-	 system("cls");
+
 	 mainpage();
 	 menu(13,enter);
 	 myprofile();
 	 ch=getch();
+	 keysound();
 	 if(ch=='1')
 	 {
 	   editmyprofile();
@@ -2997,6 +3068,7 @@ char ch;
 	 menu(15,enter);
 	 about();
 	 getch();
+	 keysound();
 
 	 goto startprograme;
 
