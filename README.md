@@ -4,7 +4,7 @@
 
 [<img src="screenshots/home.png" />](https://youtu.be/MNT0_6zweYQ)
 
-#Screen shots
+# Screen shots
 
 <img src="screenshots/login.png" />
 <img src="screenshots/home.png" />
