@@ -1,4 +1,4 @@
-# Car Racing game in C language
+# Contact Management System in C language
 
 # Youtube Demo
 
